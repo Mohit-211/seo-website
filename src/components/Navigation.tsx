@@ -1,27 +1,29 @@
 import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom"; // ✅ use Link + useLocation
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // ✅ Use absolute paths
   const navItems = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Services", href: "#services" },
-    { name: "Blog", href: "#blog" },
-    { name: "Pricing", href: "#pricing" },
-    { name: "Contact", href: "#contact" },
+    { name: "Home", href: "/" },
+    { name: "About", href: "/about-us" },
+    { name: "Services", href: "/services" },
+    { name: "Blog", href: "/blogs" },
+    { name: "Pricing", href: "/pricing" },
+    { name: "Contact", href: "/contact-us" },
   ];
 
   return (
@@ -43,15 +45,25 @@ const Navigation = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="text-foreground hover:text-gold transition-smooth"
-              >
-                {item.name}
-              </a>
-            ))}
+            {navItems.map((item) => {
+              const isActive =
+                location.pathname === item.href ||
+                (item.href !== "/" && location.pathname.startsWith(item.href));
+
+              return (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  className={`transition-smooth ${
+                    isActive
+                      ? "text-gold font-semibold"
+                      : "text-foreground hover:text-gold"
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              );
+            })}
           </div>
 
           {/* CTA Button */}
@@ -77,16 +89,28 @@ const Navigation = () => {
         {isMobileMenuOpen && (
           <div className="md:hidden bg-background border-t border-border">
             <div className="px-2 pt-2 pb-3 space-y-1">
-              {navItems.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="block px-3 py-2 text-foreground hover:text-gold transition-smooth"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {item.name}
-                </a>
-              ))}
+              {navItems.map((item) => {
+                const isActive =
+                  location.pathname === item.href ||
+                  (item.href !== "/" &&
+                    location.pathname.startsWith(item.href));
+
+                return (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    className={`block px-3 py-2 transition-smooth ${
+                      isActive
+                        ? "text-gold font-semibold"
+                        : "text-foreground hover:text-gold"
+                    }`}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                );
+              })}
+
               <div className="px-3 py-2">
                 <Button variant="gold" size="lg" className="w-full">
                   Book Free Consultation

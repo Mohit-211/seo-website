@@ -1,73 +1,95 @@
-# Welcome to your Lovable project
+LocalSEOPro Website
 
-## Project info
+A modern, fast, and scalable website for LocalSEOPro — helping businesses grow local visibility with Google Maps optimization, reviews, citations, and more.
+Built with Vite, React, TypeScript, TailwindCSS, and shadcn/ui.
 
-**URL**: https://lovable.dev/projects/2b58d69f-6705-470a-aa1e-2ab6a5f137fa
+🔗 Live Preview: seo.madira.xyz
 
-## How can I edit this code?
+🚀 Features
 
-There are several ways of editing your application.
+Dynamic Blog System — Blogs managed via Firebase Firestore.
 
-**Use Lovable**
+Contact Form Integration — Submissions saved to Firestore for lead management.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/2b58d69f-6705-470a-aa1e-2ab6a5f137fa) and start prompting.
+Service Pages — Each core service (Local SEO, GBP Optimization, Reviews, etc.) has a dedicated landing page.
 
-Changes made via Lovable will be committed automatically to this repo.
+Modern UI/UX — Dark theme with gold accents (#1E222A + #FED045) for a premium brand feel.
 
-**Use your preferred IDE**
+Responsive Design — Optimized for desktop, tablet, and mobile.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Reusable Components — Navigation, Footer, and PageBanner templates for consistency.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+🛠️ Tech Stack
 
-Follow these steps:
+Frontend: React (TypeScript), Vite
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
+Styling: Tailwind CSS, shadcn/ui, lucide-react icons
+
+Backend/DB: Firebase (Firestore + Storage)
+
+Forms: Firestore submission + honeypot spam protection
+
+📂 Project Structure
+src/
+├─ components/ # Shared UI components (Navbar, Footer, PageBanner, etc.)
+├─ pages/ # Page views (Home, About, Services, Blog, Contact, etc.)
+├─ firebase.ts # Firebase config & Firestore initialization
+└─ App.tsx # Routes & global layout
+
+⚡ Getting Started
+
+Clone and run locally:
+
+# 1. Clone repository
+
 git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
 cd <YOUR_PROJECT_NAME>
 
-# Step 3: Install the necessary dependencies.
-npm i
+# 2. Install dependencies
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+npm install
+
+# 3. Set up environment
+
+cp .env.example .env.local
+
+# Add your Firebase credentials (from Firebase Console)
+
+# 4. Start development server
+
 npm run dev
-```
 
-**Edit a file directly in GitHub**
+🔑 Environment Variables
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Create a .env.local file with:
 
-**Use GitHub Codespaces**
+VITE_FIREBASE_API_KEY=your_api_key
+VITE_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
+VITE_FIREBASE_PROJECT_ID=your_project_id
+VITE_FIREBASE_STORAGE_BUCKET=your_project.appspot.com
+VITE_FIREBASE_MESSAGING_SENDER_ID=sender_id
+VITE_FIREBASE_APP_ID=app_id
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+🌍 Deployment
 
-## What technologies are used for this project?
+Custom Domain: Configure in Project > Settings > Domains.
 
-This project is built with:
+Manual Deploy (VPS/Nginx): Build with npm run build → upload dist/ → configure Nginx for SPA fallback.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+📈 Roadmap
 
-## How can I deploy this project?
+Core pages (Home, Services, About, Contact, Pricing)
 
-Simply open [Lovable](https://lovable.dev/projects/2b58d69f-6705-470a-aa1e-2ab6a5f137fa) and click on Share -> Publish.
+Blog listing + detail pages (Firestore)
 
-## Can I connect a custom domain to my Lovable project?
+Contact form submission to Firestore
 
-Yes, you can!
+Blog Admin Panel (Firebase Auth + WYSIWYG editor)
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+Email/Slack notifications on new contact form leads
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+SEO Enhancements (meta tags, OG images, structured data)
+
+👨‍💻 Authors
+
+LocalSEOPro Team — From Canada to India, helping businesses dominate local search.
