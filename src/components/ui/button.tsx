@@ -18,6 +18,10 @@ const buttonVariants = cva(
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
+        // Local SEO Agency Brand Variants
+        gold: "gradient-gold text-gold-foreground shadow-gold hover:opacity-90 transition-smooth font-semibold",
+        "gold-outline": "border-2 border-gold text-gold bg-transparent hover:bg-gold hover:text-gold-foreground transition-smooth font-semibold",
+        hero: "bg-content-bg text-content-foreground hover:bg-content-bg/90 transition-smooth font-semibold",
       },
       size: {
         default: "h-10 px-4 py-2",
